@@ -1,8 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';   //Realiza as devidas importações
-import App from './App';  //Importa  infromações do arquivo App
+import { createRoot } from 'react-dom/client';
+import App from './App';
 
+const root = createRoot(document.getElementById('root'));
 
-ReactDOM.render(
-    <App />, document.getElementById('root')
-);
+root.render(<App />);
+
+//Busca o elemento root dentro da raiz do projeto no index.
+

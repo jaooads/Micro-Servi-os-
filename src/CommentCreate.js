@@ -19,7 +19,7 @@ const CommentCreate = ({ postId }) => {
         <div>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label>New Comment</label>
+                    <label>Novo Comentário</label>
                     <input
                         value={content}
                         onChange={(e) => setContent(e.target.value)}

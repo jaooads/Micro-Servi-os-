@@ -6,7 +6,7 @@ const App = () => {
     // centraliza os itens ao meio 
     //Front- Designer
     return (<div className='container'>
-        <h1>Post Criado </h1>
+        <h1>Criar um post </h1>
         <PostCreate />
         <hr />
         <h1>Posts</h1>

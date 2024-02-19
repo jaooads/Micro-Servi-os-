@@ -14,12 +14,12 @@ const PostList = () => {
         //Definir quando iremos chamar a função
         //Define a função apenas quando a solicitação do Fetch retornar algo;
         //Para ter certeza que pode executar a função apenas quando fetch   for exibido
-
     };
     useEffect(() => {
         fetchPosts();
     }, []);
-    console.log(posts);     // Array vazio serve para dizer que está função será executada apenas uma vez
+    console.log(posts);
+         // Array vazio serve para dizer que está função será executada apenas uma vez
     const renderPosts = Object.values(posts).map(post => {
         return (
             <div

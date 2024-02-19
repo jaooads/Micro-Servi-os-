@@ -2,24 +2,30 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const PostCreate = () => {
-    const [title, setTitle] = useState(''); //Verifica o nome do titulo inserido e seta ele
+    const [title, setTitle] = useState(''); 
+
     const onSubmit = async (event) => {
         event.preventDefault();
 
+        if (!title.trim()) {  // Verifica se o título está vazio ou contém apenas espaços em branco
+            alert("Por favor insira um título para seu post");
+            return;  // Impede que o código abaixo seja executado se o título estiver vazio
+        }
+
         await axios.post('http://localhost:4000/posts', {
             title
-        });   //Faremos uma solicitação para o serviço de posts  para a porta 4000
-        setTitle(""); //Para ter certeza que foi enviado o title e caso foi,  ele limpa a areá de seleção
+        });
+        setTitle("");
+        window.location.reload();  // Recarrega a página após o envio do post
     };
 
-    return (                //Este é um exemplo de uma API
-        //Função para sempre que aver uma solicitaçãode entrada no Submit ele busca se a algum valor no title
+    return (                
         <div>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label>Titulo</label>
+                    <label>Título</label>
                     <input
-                        value={title} onChange={e => setTitle(e.target.value)} //Busca o valor de title 
+                        value={title} onChange={e => setTitle(e.target.value)}
                         className="form-control"
                     />
                 </div>

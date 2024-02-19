@@ -5,7 +5,7 @@ const CommentCreate = ({ postId }) => {
     const [content, setContent] = useState("");   //Quando enviado ele limpa a caixa de texto 
 
 
-    const onSubmit = async (event) => {
+    const onSubmit = async (event) => {   //Função Assincrona então ela faz um evento de solicitação para /comments
         event.preventDefault(); //Passa um evento na condição para saber que esta acontecendo um evento
 
         await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
@@ -13,6 +13,7 @@ const CommentCreate = ({ postId }) => {
         });
 
         setContent("");
+        window.location.reload(); // Recarrega a página após o envio do comentário
     };
 
     return (
@@ -29,6 +30,7 @@ const CommentCreate = ({ postId }) => {
                 <button className="btn btn-primary">Enviar</button>
             </form>
         </div>
+
     );
 };
 

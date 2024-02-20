@@ -1,12 +1,23 @@
 import React from "react";
 
+const CommentList = ({ comments }) => {
+  const renderedComments = comments.map((comment) => {
+    let content;
 
-export default ({ comments }) => {
+    if (comment.status === 'approved') {
+      content = comment.content;
+    }
+    if (comment.status === 'pending') {
+      content = 'Comentário pendente';
+    }
+    if (comment.status === 'rejected') {
+      content = 'Comentário rejeitado';
+    }
 
-    const renderedComments = comments.map((comment) => {
+    return <li key={comment.id}>{content}</li>;
+  });
 
-        return <li key={comment.id}>{comment.content}</li>; //Retorna o conteudo de um comentario
-    });
+  return <ul>{renderedComments}</ul>;
+};
 
-    return <ul>{renderedComments}</ul>;
-}
+export default CommentList;
